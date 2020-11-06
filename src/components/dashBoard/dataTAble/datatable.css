@@ -1,0 +1,12 @@
+.table{
+  width: 80%;
+  justify-content: center;
+}
+.data-table th {
+  background-color: white;
+  padding: 7px;
+  position: relative;
+  width: 150px;
+  font-weight: normal;
+  line-height: 2em;
+}
