@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import DataTAble from './dataTAble/DataTAble'
-import './Dashboard.css'
 
 class DashBoard extends Component {
     constructor(props) {
@@ -27,7 +26,6 @@ class DashBoard extends Component {
                     }}
                     width= "100%"
                     data = {this.props.user}
-                    noData="No Records"
                     onUpdate={this.onUpdateTable}
                     />
             </div>

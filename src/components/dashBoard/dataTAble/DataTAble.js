@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import "./datatable.css";
+import './dataTable.css'
 
 
 
@@ -15,8 +15,8 @@ class DataTAble extends React.Component {
 
     render() {
     return (
-      <div className="table table-bordered">
-        <div>
+      <div className="table-striped">
+        <table>
           <tbody>
             {this.state.headers.map((itemcol, idx) => (
               <div className="hide">
@@ -29,8 +29,9 @@ class DataTAble extends React.Component {
               </div>
             ))}
           </tbody>
-        </div>
+        </table>
       </div>
+      
     );
   }
 }

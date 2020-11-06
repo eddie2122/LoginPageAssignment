@@ -1,12 +1,21 @@
-.table{
+.table-striped {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
   width: 80%;
-  justify-content: center;
+  width: 100%;
+  align-items: center;
 }
-.data-table th {
-  background-color: white;
-  padding: 7px;
-  position: relative;
-  width: 150px;
-  font-weight: normal;
-  line-height: 2em;
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+td {
+  background-color: #dddddd;
+}
+.ID{
+    width:400px;
+    text-align: center;
 }

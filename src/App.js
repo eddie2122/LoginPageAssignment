@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import LoginPage from './components/loginPage/LoginPage'
 import Store from './components/reduxStore/loginValue/Store'
+import './App.css'
 
 
 class App extends Component {
   render() {
     return (
       <Provider store ={Store}>
-      <div>
+      <div className = "App">
         <LoginPage/>
       </div>
       </Provider>

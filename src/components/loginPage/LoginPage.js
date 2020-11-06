@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import DashBoard from '../dashBoard/DashBoard';
+import './loginPAge.css'
   
 class App extends React.Component {
     constructor(props) {
@@ -101,11 +102,11 @@ class App extends React.Component {
       console.log(this.props.username)
       console.log(this.state.input.email)
     return (
-      <div>
-          <h1>Login Page</h1>
+      <div className="container">
+          <h1 className="login-page">Login Page</h1>
         <form onSubmit={this.handleSubmit} action="google.com">
           <div class="form-group">
-            <label for="email">Email Address:</label>
+            <label for="email" className="login-page">Email Address</label>
             <input 
               type="text" 
               name="email" 
@@ -119,7 +120,7 @@ class App extends React.Component {
           </div>
   
           <div class="form-group">
-            <label for="password">Password:</label>
+            <label for="password" className="login-page">Password</label>
             <input 
               type="password" 
               name="password" 
@@ -131,9 +132,9 @@ class App extends React.Component {
   
               <div className="text-danger">{this.state.errors.password}</div>
           </div>           
-          <div onClick ={this.handleClick}>
-              <input type="submit" name="Login"/>
-          </div>
+          <button onClick ={this.handleClick} type="submit">
+              Submit
+          </button>
         </form>
       </div>
     );
