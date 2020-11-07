@@ -103,7 +103,7 @@ class App extends React.Component {
       console.log(this.state.input.email)
     return (
       <div className="container">
-          <h1 className="login-page">Login Page</h1>
+          <h1 className="login-page">{this.props.username}</h1>
         <form onSubmit={this.handleSubmit} action="google.com">
           <div class="form-group">
             <label for="email" className="login-page">Email Address</label>
@@ -147,15 +147,5 @@ const mapStateToProps = state => {
         user : state.user
     }
   }
-
-// const mapDispachToProps = dispatch => {
-//     return {
-//         buyCake : () => {
-//             dispatch(buyCake)
-//         }
-//     }
-// }
-
-
   
 export default connect(mapStateToProps)(App);

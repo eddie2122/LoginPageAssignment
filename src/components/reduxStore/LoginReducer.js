@@ -1,8 +1,12 @@
-import { LoginActions } from './LoginActions'
+import { Types } from './actionsTypes';
+import {LoginActions} from '.././reduxStore/LoginActions'
 
-const initialState = {
-    username : "hruday@gmail.com",
-    password : 'hruday123',
+
+export const initialState = {
+    
+       username : "hruday@gmail.com",
+       password : 'hruday123',
+
 
     user:[{
     "id":1,
@@ -52,16 +56,27 @@ const initialState = {
     "email" : "test6@gmail.com",
     "phoneNo" : "9415346318"
     }
-]
-}
+]}
 
-function Loginreducer(state = initialState, action) {
-    switch (action.type) {
+export const LoginReducer = (state = initialState, action) => {
+  
+  switch (action.type) {
         case LoginActions: return {
             username: state.username
         }
-        default: return state
-    }
+    case Types.LOGIN:
+    console.log('login', action.payload.user)
+      return {
+        ...state,
+        profile: action.payload.user,
+        formSubmitted: false // after update user formsubmition reset
+      }
+    case Types.FORM_SUBMITION_STATUS:
+      return {
+        ...state,
+        formSubmitted: action.payload.status
+      }
+    default:
+      return state;
+  }
 }
-
-export default Loginreducer
