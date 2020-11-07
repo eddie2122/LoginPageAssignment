@@ -7,6 +7,7 @@ import './App.css'
 
 class App extends Component {
   render() {
+    console.log(Store.getState())
     return (
       <Provider store ={Store}>
       <div className = "App">
