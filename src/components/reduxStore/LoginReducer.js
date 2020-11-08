@@ -3,7 +3,7 @@ import { Types } from "./actionsTypes";
 export const initialState = {
   isLoggedIn : false,
   userProfile: {},
-  loginError: null,
+  loginError: false,
   loginCreds: {
     username: "hruday@gmail.com",
     password: "hruday123",
@@ -64,16 +64,17 @@ export const initialState = {
 export const LoginReducer = (state = initialState, action) => {
   switch (action.type) {
     case Types.LOGIN:
-      console.log("login", action.payload.user);
       return {
         ...state,
         profile: action.payload,
         isLoggedIn: true,
       };
-    case Types.LOGIN_ERROR:
+    case Types.ERROR:
       return {
         ...state,
-        loginError: action.error,
+        logError: action.error,
+        loginError: true,
+        // isLoggedIn: false
       };
     default:
       return state;

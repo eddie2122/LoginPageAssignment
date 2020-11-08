@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import DashBoard from "../dashBoard/DashBoard";
 import "./loginPAge.css";
 import { logUserIn } from "../reduxStore/LoginActions";
+// import { LoginReducer } from "../reduxStore/LoginReducer";
 
 class App extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class App extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -30,10 +31,13 @@ class App extends React.Component {
   }
 
   handleClick = () => {
+    // this.props.logError(this.state.input.email, this.state.input.password);
      this.props.logUserIn(this.state.input.email, this.state.input.password);
+     
   };
 
   handleSubmit(event) {
+    
     event.preventDefault();
 
     if (this.validate()) {
@@ -41,11 +45,6 @@ class App extends React.Component {
       input["email"] = "";
       input["password"] = "";
       this.setState({ input: input });
-      // if (this.props.isLoggedIn) {
-      //   window.open({ DashBoard });
-      // } else {
-      //   alert("Not Valid Email or Password");
-      // }
     }
   }
 
@@ -87,9 +86,12 @@ class App extends React.Component {
     return isValid;
   }
   render() {
+    console.log("error", this.props.loginError);
+    console.log("logged?", this.props.isLoggedIn);
     if (this.props.isLoggedIn) {
       return <DashBoard></DashBoard>;
     }
+
     return (
       <div className="container">
         <h1 className="login-page">Dashboard</h1>
@@ -120,7 +122,7 @@ class App extends React.Component {
               name="password"
               value={this.state.input.password}
               onChange={this.handleChange}
-              class="form-control"
+              className="form-control"
               placeholder="Enter password"
               id="password"
             />
@@ -139,10 +141,12 @@ const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.isLoggedIn,
     userProfile: state.userProfile,
+    loginError: state.loginError,
   };
 };
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ logUserIn: logUserIn }, dispatch);
+  
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
